@@ -1,0 +1,40 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+.dog-section {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.dog-display {
+    width: 300px;
+    height: fit-content;
+}
+
+img{
+    width: 100%;
+    border-radius: 4px;
+}
+.btn-container {
+     margin: 0 10px;;
+
+}
+#btn-dog-like {
+    border-radius: 50%;
+    padding: 16px 27px;
+    margin-left: 8px;
+}
+
+.dog-info {
+    position: relative;
+}
+.fixed-info {
+    position: absolute;
+    top: 100px;
+    left: 40px
+}
