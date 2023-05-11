@@ -1,40 +1,146 @@
-html,body {
-    margin: 0;
-    padding: 0;
+/* layout */
+*{
+    box-sizing: border-box;
 }
 
-.dog-section {
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+header{
     display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+}
+
+main{
+    max-width: 100%;
+}
+
+.container{
+    margin: 0 auto;
+    background-color: #F5F5F5;
+    padding: 0 10px;
+    max-width: 550px;
+    position: relative;
     height: 100vh;
-    flex-direction: column;
-    flex-wrap: wrap;
+}
+
+.icon{
+    max-height: 30px;
+    margin: .5em .75em;
+}
+
+.button-container{
+    display: flex;
+    position: relative;
+    background-color: #F5F5F5;
+    justify-content: center;
+    gap: 10%;
+    padding-bottom: 10px;
+}
+
+.badge{
+    position: absolute;
+    top: 15%;
+    left: 6%;
+    width: 40%;
+    transform: rotate(-30deg);
+    z-index: 100;
+    
+}
+
+.profile-info{
+    position: absolute;
+    bottom: .5rem;
+    left: .5rem;
+    z-index: 200; 
+    padding: 0.25em;
+    box-shadow: 4px 4px 4px 4px #c6b49b;
+    color: white;
+    margin-bottom: 0.1875em;
+ }
+
+.profile-box{
+    position: relative;
+    height: 100%;
+    border-radius: 10px;
+    height: 75vh;
+}
+
+.profile-image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    overflow: hidden;    
+}
+
+.end-message-box{
+    display: flex;
     justify-content: center;
     align-items: center;
-}
-.dog-display {
-    width: 300px;
-    height: fit-content;
+    text-align: center;
+    height: 75vh;
+    border-radius: 10px;
 }
 
-img{
-    width: 100%;
-    border-radius: 4px;
-}
-.btn-container {
-     margin: 0 10px;;
-
-}
-#btn-dog-like {
+.button{
+    border: none;
     border-radius: 50%;
-    padding: 16px 27px;
-    margin-left: 8px;
+    margin-top: 4%;
+    width: 15%;
+    aspect-ratio: 1;
+    font-weight: bolder;
+    background-color: white;
 }
 
-.dog-info {
-    position: relative;
+.heart-button{
+    box-shadow: 0px 10px 20px #8ca29c;
 }
-.fixed-info {
-    position: absolute;
-    top: 100px;
-    left: 40px
+
+.cross-button{
+    box-shadow: 0px 10px 20px #987b7b;
 }
+
+.restart-button{
+    background-image: linear-gradient(270deg, #FA695A 0%, #F8337590 100%);
+    box-shadow: 0px 10px 20px #987b7b;
+}
+.restart-button:hover,
+.restart-button:hover{
+    background-image: linear-gradient(90deg, #DBFFF4 0%, rgb(147, 222, 147) 100%);
+    box-shadow: 0px 10px 20px #8ca29c;
+}
+
+.button-image{
+    overflow: hidden;
+    padding: 20%;
+    width: 100%;
+}
+
+.heart{
+    transform: translateY(5%);
+}
+
+.heart-button:hover,
+.heart-button:focus{
+    background-color: #DBFFF4; 
+}
+
+.cross-button:hover,
+.cross-button:focus{
+    background-color: #FFE7EF; 
+}
+
+.like{
+    visibility: hidden;
+}
+
+.nope{
+    visibility: hidden;
+}
+

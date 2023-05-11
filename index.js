@@ -1,31 +1,73 @@
-// Remember to import the data and Dog class!
 import { Dog } from './Dog.js'
 import { dogs } from './data.js'
 
-const dogDisplay = document.querySelector('.dog-display')
+const likeBadgeEl = document.getElementById("likeBadge")
+const noBadgeEl = document.getElementById("nopeBadge")
+const buttonContainerEl = document.getElementById("buttonContainer")
+const dogProfileEl = document.getElementById("dogProfiles")
+
+
 let recentDogIndex = 0
-let recentDog = new Dog(dogs[recentDogIndex])
+let isWaiting = true
 
-document.getElementById("btn-dog-like").addEventListener('click', accepted)
-render()
 
-function render() {
-    dogDisplay.innerHTML = recentDog.getDogHtml()
+function renderHtml(){
+    const dogDisplayHtml = new Dog(dogs[recentDogIndex]).getDogHtml()
+    dogProfileEl.innerHTML= dogDisplayHtml
+}
+
+buttonContainerEl.addEventListener("click", (e)=>{
+    if(e.target.id == "heartButton" && isWaiting){
+        Dog.hasBeenliked = true
+        isWaiting = false
+        likeBadgeEl.style.visibility= "visible"
+        nextDogProfile()
+    }
+    
+    else if(e.target.id === "crossButton" && isWaiting){
+        isWaiting = false
+        noBadgeEl.style.visibility= "visible"
+        nextDogProfile()
+    }
+    
+    else if(e.target.id === "restartButton"){
+            reset()
+    }
+})
+
+
+function nextDogProfile(){
+    Dog.hasBeenSwiped = true
+    setTimeout(()=>{
+        recentDogIndex++
+        likeBadgeEl.style.visibility= "hidden"
+        noBadgeEl.style.visibility= "hidden"
+            recentDogIndex > dogs.length-1 ? endMessage() : renderHtml()
+            isWaiting = true
+},1800)
+
+} 
+
+
+function endMessage(){
+    dogProfileEl.innerHTML= `
+        <div class = "end-message-box">
+            <h2>You have seen all the dogs, go to the dog park or something.</h2>
+        </div>`
+    buttonContainerEl.innerHTML=`
+    <button class ="restart-button button" id = "restartButton">Start Again?</button>`    
 }
 
 
-function getNewDog() {
-    recentDogIndex++
-    recentDog = new Dog(dogs[recentDogIndex])
-    render()
-
+function reset(){
+    recentDogIndex = 0
+    buttonContainerEl.innerHTML= `                    
+        <button class = "button cross-button" >
+            <img src = "images/icon-cross.png" id = "crossButton" class = "button-image cross" alt = "cross icon, nope button"></img>
+        </button>
+        <button class = "button heart-button" >
+            <img src = "images/icon-heart.png" id = "heartButton" class = "button-image heart" alt = "heart icon, like button"></img>
+        </button>`
+    renderHtml()
 }
-
-function accepted() {
-    recentDog.setMatchObjects(true)
-    getNewDog()
-}
-
-const  backgroundEl = document.getElementById("background")
-
-
+renderHtml()

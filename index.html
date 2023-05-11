@@ -1,22 +1,43 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="s" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>DOG</title>
-</head>
-<body class="background">
-    <section class="dog-section">
-    
-        <div class="dog-display">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400&display=swap" rel="stylesheet">
+        <title>Tin Dog App</title>
+        <link rel="stylesheet" href="/index.css">
+
+    </head>
+    <body>
+        <div class = "container">
+            <header>    
+                <img  src = "images/icon-profile.png" alt = "profile icon"  class = "icon"></img>
+                <img src = "images/logo.png" alt ="logo icon" class = "icon"></img>
+                <img src = "images/icon-chat.png" alt ="chat icon" class = "icon"></img>
+            </header>
+            <main>
+                <img src = "images/badge-like.png" alt="like bagde" class ="badge like" id = "likeBadge">
+                <img src = "images/badge-nope.png" alt="like bagde" class ="badge nope" id = "nopeBadge">            
+                <div id = "dogProfiles">
+                    
+                </div>
+                <div class ="button-container" id="buttonContainer">
+                    <button class = "button cross-button" >
+                        <img src = "images/icon-cross.png" id="crossButton" class = "button-image cross" alt = "cross icon, nope button"></img>
+                    </button>
+                    <button class = "button heart-button" >
+                        <img src = "images/icon-heart.png" id="heartButton" class = "button-image heart" alt = "heart icon, like button"></img>
+                    </button>
+                </div>
+            </main>
         </div>
-        <div class="btn-container">
-            <button id="btn-dog-like"><img src="images/icon-cross.png"></button>
-            <button id="btn-dog-like"><img src="images/icon-heart.png"></button>
-        </div>
-   </section>
-    <script src="/index.js" type="module"></script>
-</body>
+        <script src="/index.js" type="module"></script>
+    </body>
 </html>
+
+
+   

@@ -1,0 +1,43 @@
+// Remember to import the data and Dog class!
+import { Dog } from './Dog.js'
+import { dogs } from './data.js'
+
+const dogDisplayEl = document.querySelector('.dog-display')
+let recentDogIndex = 0
+let recentDog = new Dog(dogs[recentDogIndex])
+
+document.getElementById("btn-dog-like").addEventListener('click', accepted)
+render()
+
+document.getElementById('btn-dog-dislike').addEventListener("click", rejected)
+
+function render() {
+    dogDisplayEl.innerHTML = recentDog.getDogHtml()
+}
+
+
+function getNewDogProfile() {
+    const nextDogProfile = dogs.shift()
+    if(recentDog) {
+        return nextDogProfile
+    }
+    else {
+        return [] 
+    }
+    // recentDogIndex++
+    // recentDog = new Dog(dogs[recentDogIndex])
+
+}
+
+function accepted() {
+    let dogDisplay = getNewDogProfile()
+    if(dogs.length > 0) {
+        dogDisplay
+    }
+    // recentDog.setMatchObjects(true)
+    getNewDogProfile()
+}
+
+
+
+
